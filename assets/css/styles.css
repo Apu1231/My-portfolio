@@ -628,6 +628,24 @@ img {
   background-color: hsl(var(--hue), 20%, 40%);
 }
 
+.facebook {
+  color: #1877F2;
+}
+
+.instagram {
+  color: #C13584;
+}
+
+.twitter {
+  color: white;
+}
+.whatsapp {
+  color: #25D366;
+}
+.linkedin {
+  color: #0077B5;
+}
+
 /*=============== SCROLL UP ===============*/
 .scrollup {
   position: fixed;
@@ -655,197 +673,248 @@ img {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width:300px) {
-  .container{
+  .container {
     margin-inline: 1rem;
   }
-  .skills__content{
-    grid-template-columns: repeat(2,max-content);
+
+  .skills__content {
+    grid-template-columns: repeat(2, max-content);
   }
 }
 
 /* For medium devices */
 @media screen and (min-width:540px) {
+
   .home__container,
   .work__container,
   .info__container,
   .services__container,
-  .contact__container{
+  .contact__container {
     grid-template-columns: 350px;
     justify-content: center;
   }
 }
+
 @media screen and (min-width:768px) {
-  .nav__menu{
+  .nav__menu {
     width: 50%;
   }
-  .home__container{
-    grid-template-columns: repeat(2,max-content);
+
+  .home__container {
+    grid-template-columns: repeat(2, max-content);
   }
-  .home__data{
+
+  .home__data {
     align-self: flex-end;
     padding-bottom: 3rem;
     order: -1;
   }
-  .home__scroll{
+
+  .home__scroll {
     grid-column: 1 / 3;
   }
-  .work__container{
-    grid-template-columns: repeat(2,350px);
+
+  .work__container {
+    grid-template-columns: repeat(2, 350px);
   }
-  .info__container{
+
+  .info__container {
     grid-template-columns: initial;
   }
-  .about{
-    grid-template-columns: repeat(2,350px);
+
+  .about {
+    grid-template-columns: repeat(2, 350px);
     align-items: center;
   }
-  .about__container{
+
+  .about__container {
     order: 1;
   }
-  .experience__data{
+
+  .experience__data {
     grid-template-columns: repeat(2, 20rem);
   }
-  .skills__content{
-    grid-template-columns: repeat(5,max-content);
+
+  .skills__content {
+    grid-template-columns: repeat(5, max-content);
     justify-content: center;
     column-gap: 4rem;
   }
-  .services__container{
-    grid-template-columns: repeat(2,350px);
+
+  .services__container {
+    grid-template-columns: repeat(2, 350px);
   }
 }
 
 /* For large devices */
 @media screen and (min-width:1150px) {
-  .container{
+  .container {
     margin-inline: auto;
   }
-  .section{
+
+  .section {
     padding-block: 7rem 5rem;
   }
-  .section__title{
+
+  .section__title {
     margin-bottom: 4rem;
   }
-  .nav{
+
+  .nav {
     height: calc(var(--header-height) + 2rem);
   }
+
   .nav__close,
-  .nav__toggle{
+  .nav__toggle {
     display: none;
   }
-  .nav__menu{
+
+  .nav__menu {
     width: initial;
   }
-  .nav__list{
+
+  .nav__list {
     flex-direction: row;
     column-gap: 4rem;
   }
-  .home__container{
+
+  .home__container {
     grid-template-columns: 375px 350px;
     gap: 3rem 16rem;
   }
-  .home__img{
+
+  .home__img {
     width: 350px;
   }
-  .home__name{
+
+  .home__name {
     margin-bottom: 1.5rem;
   }
-  .home__profession::after{
+
+  .home__profession::after {
     bottom: -1rem;
     width: 35%;
   }
-  .work__container{
+
+  .work__container {
     grid-template-columns: repeat(2, 540px);
     gap: 3rem;
   }
-  .work__link{
+
+  .work__link {
     padding: 3rem 3rem 2rem;
   }
-  .work__title{
+
+  .work__title {
     font-size: var(--h2-font-size);
     margin-bottom: 1rem;
   }
+
   .work__link i {
     font-size: 2rem;
   }
-  .info__container{
+
+  .info__container {
     row-gap: 4rem;
   }
-  .info__title{
+
+  .info__title {
     font-size: var(--normal-font-size);
     margin-bottom: 3.5rem;
   }
-  .about{
+
+  .about {
     grid-template-columns: 320px 420px;
     column-gap: 11.5rem;
-  }.about__img{
+  }
+
+  .about__img {
     width: 320px;
   }
-  .about__description{
+
+  .about__description {
     margin-bottom: 3rem;
   }
-  .about__button{
+
+  .about__button {
     width: initial;
   }
-  .experience__content{
+
+  .experience__content {
     row-gap: 4rem;
   }
-  .experience__data{
+
+  .experience__data {
     grid-template-columns: 320px 380px;
     column-gap: 11.5rem;
   }
-  .experience__company{
+
+  .experience__company {
     font-size: var(--h1-font-size);
   }
-  .experience__profession{
+
+  .experience__profession {
     margin-bottom: .5rem;
   }
-  .experience__date{
+
+  .experience__date {
     margin-bottom: 1rem;
-   font-size: var(--normal-font-size);
+    font-size: var(--normal-font-size);
   }
-  .skills__content{
-    grid-template-columns: repeat(6,max-content);
+
+  .skills__content {
+    grid-template-columns: repeat(6, max-content);
   }
- .services__container{
-  grid-template-columns: repeat(2,350px);
-  gap: 6rem 3rem;
- }
- .services__icon{
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
- }
- .contact__container{
-  grid-template-columns: 582px;
- }
- .contact__group{
-  grid-template-columns: repeat(2,1fr);
- }
- .contact__area{
-  height: 15rem;
- }
- .contact__button{
-  width: max-content;
-  justify-self: center;
-  margin-top: 1.5rem;
- }
- .contact__message{
-  margin-bottom: 4.5rem;
- }
- .contact__social{
-  grid-template-columns: repeat(3,max-content);
-  column-gap: 5rem;
- }
- .footer__container{
-  padding-block: 3rem;
-  grid-template-columns: repeat(2,max-content);
-  justify-content: space-between;
- }
- .footer__link{
-  column-gap: 4rem;
-  order: 1;
- }
- .scrollup{
-  right: 3rem;
- }
+
+  .services__container {
+    grid-template-columns: repeat(2, 350px);
+    gap: 6rem 3rem;
+  }
+
+  .services__icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact__container {
+    grid-template-columns: 582px;
+  }
+
+  .contact__group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact__area {
+    height: 15rem;
+  }
+
+  .contact__button {
+    width: max-content;
+    justify-self: center;
+    margin-top: 1.5rem;
+  }
+
+  .contact__message {
+    margin-bottom: 4.5rem;
+  }
+
+  .contact__social {
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 5rem;
+  }
+
+  .footer__container {
+    padding-block: 3rem;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+  }
+
+  .footer__link {
+    column-gap: 4rem;
+    order: 1;
+  }
+
+  .scrollup {
+    right: 3rem;
+  }
 }

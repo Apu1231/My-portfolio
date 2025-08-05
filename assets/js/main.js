@@ -37,30 +37,88 @@ const blurHeader = () => {
 window.addEventListener('scroll', blurHeader)
 
 /*=============== EMAIL JS ===============*/
+// const contactForm = document.getElementById('contact-form'),
+//     contactMessage = document.getElementById('contact-message')
+
+// const sendEmail = (e) => {
+//     e.preventDefault()
+//     // serviceID - templateID - #form - publicKey
+//     emailjs.sendForm('service_w6vsmxw', 'template_6y886lg', '#contact-form', 'rJSY38oEm6bZlpY4K')
+//         .then(() => {
+//             // Show sent message
+//             contactMessage.textContent = 'Message sent successfully ✅'
+
+//             // Remove message after five seconds
+//             setTimeout(() => {
+//                 contactMessage.textContent = ''
+//             }, 5000)
+
+//             // Clear input fields
+//             contactForm.reset()
+
+//         }, () => {
+
+//             // Show error message
+//             contactMessage.textContent = '   Message not sent (service error) ❌'
+
+//         })
+// }
+
+// contactForm.addEventListener('submit', sendEmail)
+
 const contactForm = document.getElementById('contact-form'),
     contactMessage = document.getElementById('contact-message')
 
 const sendEmail = (e) => {
     e.preventDefault()
+    
+    // Create timestamp dynamically
+    const now = new Date()
+    const timestamp = now.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short'
+    })
+    
+    // Create hidden timestamp field and add it to form
+    let timestampField = document.createElement('input')
+    timestampField.type = 'hidden'
+    timestampField.name = 'time'
+    timestampField.value = timestamp
+    contactForm.appendChild(timestampField)
+    
     // serviceID - templateID - #form - publicKey
-    emailjs.sendForm('service_zvtqail', 'template_7zc8dpj', '#contact-form', 'TKZ-4r25vq3u3jXuB')
+    emailjs.sendForm('service_w6vsmxw', 'template_6y886lg', '#contact-form', 'rJSY38oEm6bZlpY4K')
         .then(() => {
             // Show sent message
             contactMessage.textContent = 'Message sent successfully ✅'
-
+            contactMessage.style.color = '#28a745'
+            
             // Remove message after five seconds
             setTimeout(() => {
                 contactMessage.textContent = ''
             }, 5000)
-
-            // Clear input fields
+            
+            // Clear input fields and remove timestamp field
             contactForm.reset()
-
-        }, () => {
-
+            if (timestampField.parentNode) {
+                timestampField.parentNode.removeChild(timestampField)
+            }
+            
+        }, (error) => {
             // Show error message
-            contactMessage.textContent = '   Message not sent (service error) ❌'
-
+            contactMessage.textContent = 'Message not sent (service error) ❌'
+            contactMessage.style.color = '#dc3545'
+            console.error('EmailJS error:', error)
+            
+            // Remove timestamp field on error too
+            if (timestampField.parentNode) {
+                timestampField.parentNode.removeChild(timestampField)
+            }
         })
 }
 
@@ -86,7 +144,7 @@ const scrollActive = () =>{
 		const sectionHeight = current.offsetHeight,
 			  sectionTop = current.offsetTop - 58,
 			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href=#home' + sectionId + ']')
+			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
 		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
 			sectionsClass.classList.add('active-link')
